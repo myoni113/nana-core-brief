@@ -435,14 +435,61 @@
     .cta-back { flex-direction: column; text-align: center; }
   }
 
-  /* 打印/PDF */
+  /* 打印/PDF —— 优化紧凑度 */
   @page { size: A4; margin: 8mm; }
   @media print {
     body { background: #fff !important; }
+    body::before { display: none !important; }
     .section, .top-hero, .cta-back { box-shadow: none !important; }
-    .section { page-break-inside: avoid; break-inside: avoid; }
+
+    /* 前半段压紧 */
+    .top-hero { padding: 14px 18px; gap: 14px; min-height: 0; margin-bottom: 6px; }
+    .hero-cover { width: 110px; border-width: 3px; }
+    .hero-title { font-size: 24px; margin-bottom: 4px; }
+    .hero-title-sub { font-size: 13px; }
+    .hero-eyebrow { padding: 3px 10px; font-size: 11px; margin-bottom: 6px; }
+    .hero-tag-label { margin-top: 8px; margin-bottom: 4px; }
+    .hero-tags .htag { padding: 5px 12px; font-size: 13px; }
+
+    .intro-quote { padding: 10px 16px; margin-bottom: 6px; font-size: 12.5px; line-height: 1.6; }
+    .intro-quote p { margin: 2px 0; }
+
+    .section { margin-top: 6px; padding: 12px 16px; break-inside: auto; page-break-inside: auto; }
+    .section-head { margin-bottom: 8px; }
+    .section-num { width: 22px; height: 22px; font-size: 11px; }
+    .section-title { font-size: 15px; }
+
+    .rules-list li { padding: 7px 12px; margin-bottom: 4px; font-size: 12.5px; line-height: 1.55; }
+    .rules-list { break-inside: avoid; page-break-inside: avoid; }
+
+    /* section 02 定义模块，图小一点 */
+    .define-wrap {
+      display: flex !important;
+      gap: 14px; align-items: flex-start;
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    .define-img { width: 130px; flex-shrink: 0; break-inside: avoid; page-break-inside: avoid; }
+    .define-body { flex: 1; }
+    .define-body h3 { font-size: 13.5px; margin: 4px 0 5px; }
+    .define-body p, .define-body ul li { font-size: 12.5px; line-height: 1.6; padding: 3px 0; margin: 4px 0; }
+    .define-body .lead { font-size: 13px; margin-bottom: 8px; }
+    h3.subhead { font-size: 13px; margin: 10px 0 6px; padding-left: 8px; }
+    .tip-callout { padding: 8px 12px; font-size: 12px; margin-top: 8px; line-height: 1.55; break-inside: avoid; page-break-inside: avoid; }
+
+    /* 视频内容单独一页起 */
+    #sec-video { break-before: page; page-break-before: always; break-inside: avoid; page-break-inside: avoid; }
+
+    .video-illustrate, .outfit-illustrate { padding: 10px 12px; gap: 12px; margin-bottom: 6px; }
+    .video-illustrate .vi-copy p, .outfit-illustrate .oi-copy p { font-size: 12.5px; margin: 4px 0; }
+    .video-illustrate .vi-copy .lines { padding: 8px 12px; }
+    .video-illustrate .vi-copy .lines .line { font-size: 12.5px; padding: 2px 0; }
+    .tag-badges .tb { padding: 4px 10px; font-size: 12px; }
+
+    .cta-back { padding: 12px 16px; margin-top: 10px; }
+    .cta-back .cta-text { font-size: 13px; }
+    .footer { padding: 10px 0 4px; font-size: 11px; }
   }
-</style>
+  </style>
 </head>
 <body>
 <div class="page">
@@ -472,7 +519,7 @@
   </div>
 
   <!-- 一、投稿激励 -->
-  <div class="section">
+  <div class="section" id="sec-incentive">
     <div class="section-head">
       <div class="section-num">01</div>
       <h2 class="section-title">一、投稿激励</h2>
@@ -486,7 +533,7 @@
   </div>
 
   <!-- 二、穿搭内容画面 -->
-  <div class="section">
+  <div class="section" id="sec-define">
     <div class="section-head">
       <div class="section-num">02</div>
       <h2 class="section-title">二、穿搭内容画面</h2>
@@ -515,9 +562,8 @@
       </div>
     </div>
   </div>
-
   <!-- 三、视频内容 -->
-  <div class="section">
+  <div class="section" id="sec-video">
     <div class="section-head">
       <div class="section-num">03</div>
       <h2 class="section-title">三、视频内容</h2>
