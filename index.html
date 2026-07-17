@@ -11,11 +11,12 @@
     --grey-deep: #7F8388;
     --grey-light: #EEF1F0;
 
-    /* 二次元圈层：粉色系（复用总brief配色） */
+    /* 二次元圈层：粉色系 */
     --ani-main: #F8CCDB;
     --ani-deep: #F0B5C8;
     --ani-soft: #FDEEF3;
     --ani-ink:  #7A2E48;
+    --hl-yellow: #FFEEAD;
   }
   * { box-sizing: border-box; }
   body {
@@ -23,10 +24,9 @@
     font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     background: #FDF5F9 url("assets/bg.jpg") center top / 666px auto repeat;
     color: var(--ink);
-    line-height: 1.6;
+    line-height: 1.65;
     font-size: 14px;
   }
-  /* 背景图之上加一层白纱，避免视觉喧宾夺主 */
   body::before {
     content: "";
     position: fixed;
@@ -35,14 +35,15 @@
     z-index: 0;
     pointer-events: none;
   }
-  .page { position: relative; z-index: 1; }
   .page {
     max-width: 1080px;
     margin: 0 auto;
     padding: 12px 20px 30px;
+    position: relative;
+    z-index: 1;
   }
 
-  /* Top Hero */
+  /* ============ Top Hero ============ */
   .top-hero {
     border-radius: 16px;
     overflow: hidden;
@@ -50,30 +51,30 @@
     box-shadow: 0 8px 26px rgba(240,181,200,0.4);
     background: linear-gradient(135deg, var(--ani-soft) 0%, var(--ani-main) 100%);
     position: relative;
-    padding: 32px 28px 32px 28px;
+    padding: 28px 26px;
     display: flex;
     align-items: center;
-    gap: 24px;
-    min-height: 220px;
+    gap: 22px;
+    min-height: 200px;
   }
   .top-hero::before {
     content: "🎀";
     position: absolute;
     top: 16px; right: 22px;
-    font-size: 28px;
+    font-size: 26px;
     opacity: 0.8;
   }
   .top-hero::after {
     content: "";
     position: absolute;
     bottom: -20px; left: -20px;
-    width: 110px; height: 110px;
+    width: 100px; height: 100px;
     background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
   }
   .hero-cover {
-    width: 150px;
+    width: 140px;
     aspect-ratio: 3/4;
     border-radius: 14px;
     overflow: hidden;
@@ -99,31 +100,30 @@
     letter-spacing: 0.5px;
   }
   .hero-title {
-    margin: 0 0 8px;
-    font-size: 32px;
+    margin: 0 0 6px;
+    font-size: 30px;
     font-weight: 800;
     color: var(--ani-ink);
     letter-spacing: 1px;
     text-shadow: 0 2px 8px rgba(255,255,255,0.5);
   }
   .hero-title-sub {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 0;
     margin-left: 4px;
     opacity: 0.85;
     white-space: nowrap;
   }
-  .hero-sub {
-    margin: 0;
+  .hero-brand {
+    font-size: 12.5px;
     color: var(--ink);
-    font-size: 13px;
-    line-height: 1.65;
-    opacity: 0.8;
+    opacity: 0.75;
+    margin: 2px 0 12px;
   }
   .hero-tag-label {
     display: inline-block;
-    margin-top: 14px;
+    margin-top: 4px;
     margin-bottom: 6px;
     padding: 3px 10px;
     background: rgba(255,255,255,0.75);
@@ -150,32 +150,55 @@
     box-shadow: 0 3px 10px rgba(122,46,72,0.25);
   }
 
-  /* 引子高亮块 */
-  .intro-quote {
+  /* ============ 合作邀请 highlight 块 ============ */
+  .invite-block {
     background: linear-gradient(135deg, #FFFFFF 0%, var(--ani-soft) 100%);
     border-left: 5px solid var(--ani-deep);
     border-radius: 12px;
     padding: 18px 22px;
     margin-bottom: 10px;
     box-shadow: 0 4px 16px rgba(240,181,200,0.25);
-    font-size: 14px;
-    line-height: 1.85;
+  }
+  .invite-block .invite-title {
+    display: inline-block;
+    background: var(--ani-ink);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+  .invite-block p {
+    margin: 8px 0;
+    font-size: 13.5px;
+    line-height: 1.8;
     color: var(--ink);
   }
-  .intro-quote p { margin: 4px 0; }
-  .intro-quote .qhi { color: var(--ani-ink); font-weight: 700; }
+  .invite-block .em { color: var(--ani-ink); font-weight: 700; }
+  .invite-block .htag-inline {
+    display: inline-block;
+    background: var(--ani-main);
+    color: var(--ani-ink);
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 12.5px;
+    margin: 0 2px;
+  }
 
-  /* Sections 通用 */
+  /* ============ Sections 通用 ============ */
   .section {
     background: #fff;
     border-radius: 16px;
-    padding: 16px 20px;
+    padding: 18px 22px;
     margin-top: 10px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.05);
   }
   .section-head {
     display: flex; align-items: center; gap: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
   .section-num {
     width: 28px; height: 28px;
@@ -186,11 +209,132 @@
   }
   .section-title {
     margin: 0;
-    font-size: 17px; font-weight: 800; color: var(--ink);
+    font-size: 18px; font-weight: 800; color: var(--ink);
   }
 
-  .rules-list { list-style: none; padding: 0; margin: 0; }
-  .rules-list li {
+  /* ============ 项目介绍：信息卡片 ============ */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .info-item {
+    background: var(--ani-soft);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .info-item .lab {
+    display: block;
+    font-size: 11px;
+    color: var(--ani-ink);
+    font-weight: 700;
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+  }
+  .info-item .val { color: var(--ink); font-weight: 600; }
+  .info-item .val .htag-inline {
+    display: inline-block;
+    background: var(--ani-main);
+    color: var(--ani-ink);
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 12.5px;
+    margin-right: 4px;
+  }
+
+  .bg-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ani-ink);
+    margin: 10px 0 8px;
+    padding-left: 10px;
+    border-left: 3px solid var(--ani-deep);
+  }
+  .bg-body {
+    background: #FEF7FA;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--ink);
+  }
+  .bg-body p { margin: 6px 0; }
+  .bg-body p b { color: var(--ani-ink); }
+  .bg-body .quote {
+    background: #fff;
+    border-left: 3px solid var(--ani-main);
+    padding: 8px 14px;
+    margin: 8px 0;
+    border-radius: 0 8px 8px 0;
+    color: var(--ani-ink);
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+
+  /* ============ 合作激励：分组卡片 ============ */
+  .perk-group {
+    background: var(--ani-soft);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .perk-group:last-child { margin-bottom: 0; }
+  .perk-group .pg-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .perk-group .pg-icon {
+    width: 26px; height: 26px;
+    background: var(--ani-ink); color: #fff;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .perk-group .pg-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ani-ink);
+    margin: 0;
+  }
+  .perk-list { list-style: none; padding: 0; margin: 0; }
+  .perk-list li {
+    background: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .perk-list li:last-child { margin-bottom: 0; }
+  .perk-list li .em {
+    background: var(--hl-yellow);
+    color: var(--ink);
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  /* ============ 笔记要求 ============ */
+  .subhead {
+    font-size: 14.5px;
+    color: var(--ani-ink);
+    margin: 14px 0 10px;
+    font-weight: 800;
+    padding-left: 10px;
+    border-left: 3px solid var(--ani-deep);
+    line-height: 1.4;
+  }
+  .subhead:first-child { margin-top: 4px; }
+
+  .req-list { list-style: none; padding: 0; margin: 0; }
+  .req-list li {
     padding: 10px 14px;
     background: var(--ani-soft);
     border-radius: 10px;
@@ -198,90 +342,11 @@
     font-size: 13.5px;
     line-height: 1.6;
   }
-  .rules-list li:last-child { margin-bottom: 0; }
-  .rules-list li .k {
+  .req-list li .k {
     color: var(--ani-ink);
     font-weight: 700;
     margin-right: 4px;
   }
-
-  /* 什么是奈奈core：图文双栏 */
-  .define-wrap {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 20px;
-    align-items: start;
-    margin-bottom: 14px;
-  }
-  .define-img {
-    border-radius: 12px;
-    overflow: hidden;
-    background: var(--ani-soft);
-    box-shadow: 0 6px 18px rgba(240,181,200,0.35);
-    aspect-ratio: 3/5;
-  }
-  .define-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .define-body h3 {
-    margin: 0 0 6px;
-    font-size: 15px;
-    color: var(--ani-ink);
-    font-weight: 800;
-  }
-  .define-body p {
-    margin: 6px 0;
-    font-size: 13.5px;
-    line-height: 1.75;
-  }
-  .define-body .lead {
-    font-size: 15px;
-    line-height: 1.8;
-    margin-bottom: 12px;
-  }
-  .define-body .lead b { color: var(--ani-ink); }
-  .define-body ul {
-    list-style: none;
-    padding: 0;
-    margin: 8px 0 0;
-  }
-  .define-body ul li {
-    padding: 6px 0;
-    font-size: 13px;
-    line-height: 1.7;
-  }
-  .define-body ul li b { color: var(--ani-ink); margin-right: 4px; }
-
-  /* XXcore 扩展提示 */
-  .tip-callout {
-    margin-top: 12px;
-    background: #fff;
-    border: 2px dashed var(--ani-deep);
-    border-radius: 12px;
-    padding: 14px 18px;
-    font-size: 13.5px;
-    line-height: 1.7;
-    color: var(--ink);
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-  }
-  .tip-callout .tip-icon {
-    font-size: 22px;
-    flex-shrink: 0;
-    line-height: 1;
-    padding-top: 2px;
-  }
-
-  /* 视频要求：小节子标题 */
-  h3.subhead {
-    font-size: 14.5px;
-    color: var(--ani-ink);
-    margin: 16px 0 10px;
-    font-weight: 800;
-    padding-left: 10px;
-    border-left: 3px solid var(--ani-deep);
-    line-height: 1.4;
-  }
-  h3.subhead:first-child { margin-top: 4px; }
 
   .tag-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 12px; }
   .tag-badges .tb {
@@ -292,13 +357,73 @@
     font-size: 13px;
     font-weight: 600;
   }
-  .tag-badges .tb.recommend {
-    background: #fff;
+
+  /* ============ 什么是 fancore highlight 卡 ============ */
+  .fancore-def {
+    background: linear-gradient(135deg, #FFFFFF 0%, var(--ani-soft) 100%);
+    border-left: 5px solid var(--ani-deep);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 10px 0 14px;
+  }
+  .fancore-def h4 {
+    margin: 0 0 8px;
+    font-size: 15px;
     color: var(--ani-ink);
-    border: 2px solid var(--ani-ink);
+    font-weight: 800;
+  }
+  .fancore-def p {
+    margin: 6px 0;
+    font-size: 13.5px;
+    line-height: 1.75;
+  }
+  .fancore-def p b { color: var(--ani-ink); }
+  .fancore-def .fmt {
+    display: inline-block;
+    background: #fff;
+    border: 2px dashed var(--ani-deep);
+    color: var(--ani-ink);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    margin: 6px 4px 0 0;
   }
 
-  /* 图文并排：视频画面示意 */
+  /* ============ 奈奈core 示范 ============ */
+  .define-wrap {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    align-items: start;
+    margin: 10px 0;
+  }
+  .define-img {
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--ani-soft);
+    box-shadow: 0 6px 18px rgba(240,181,200,0.35);
+    aspect-ratio: 3/5;
+  }
+  .define-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .define-body h4 {
+    margin: 0 0 6px;
+    font-size: 14.5px;
+    color: var(--ani-ink);
+    font-weight: 800;
+  }
+  .define-body p { margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+  .define-body .lead {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+  }
+  .define-body .lead b { color: var(--ani-ink); }
+  .define-body ul { list-style: none; padding: 0; margin: 6px 0 0; }
+  .define-body ul li { padding: 5px 0; font-size: 13px; line-height: 1.7; }
+  .define-body ul li b { color: var(--ani-ink); margin-right: 4px; }
+
+  /* ============ 内容画面 · 视频要求 ============ */
   .video-illustrate {
     display: grid;
     grid-template-columns: 180px 1fr;
@@ -317,11 +442,7 @@
     box-shadow: 0 4px 14px rgba(122,46,72,0.15);
   }
   .video-illustrate .vi-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .video-illustrate .vi-copy p {
-    margin: 6px 0;
-    font-size: 13.5px;
-    line-height: 1.7;
-  }
+  .video-illustrate .vi-copy p { margin: 6px 0; font-size: 13.5px; line-height: 1.7; }
   .video-illustrate .vi-copy .lines {
     background: #fff;
     border-radius: 8px;
@@ -342,7 +463,6 @@
     margin-right: 2px;
   }
 
-  /* 穿搭展示：两张竖图 + 说明 */
   .outfit-illustrate {
     display: grid;
     grid-template-columns: 220px 1fr;
@@ -365,11 +485,7 @@
     box-shadow: 0 4px 12px rgba(122,46,72,0.12);
   }
   .outfit-illustrate .oi-imgs .oi-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .outfit-illustrate .oi-copy p {
-    margin: 6px 0;
-    font-size: 13.5px;
-    line-height: 1.75;
-  }
+  .outfit-illustrate .oi-copy p { margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
   .outfit-illustrate .oi-copy p b { color: var(--ani-ink); }
 
   .footer {
@@ -380,44 +496,6 @@
   }
   .footer .heart { color: var(--ani-deep); }
 
-  /* CTA 回到活动 */
-  .cta-back {
-    margin-top: 14px;
-    background: linear-gradient(135deg, var(--ani-main) 0%, var(--ani-deep) 100%);
-    border-radius: 14px;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    flex-wrap: wrap;
-    box-shadow: 0 6px 20px rgba(240,181,200,0.4);
-  }
-  .cta-back .cta-text {
-    color: var(--ani-ink);
-    font-weight: 800;
-    font-size: 15px;
-  }
-  .cta-back .cta-text small {
-    display: block;
-    font-weight: 500;
-    font-size: 12px;
-    opacity: 0.8;
-    margin-top: 2px;
-  }
-  .cta-back a {
-    background: var(--ani-ink);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 13px;
-    white-space: nowrap;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .cta-back a:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(122,46,72,0.35); }
-
   @media (max-width: 640px) {
     .page { padding: 12px 12px 30px; }
     .top-hero { padding: 20px 18px; gap: 14px; min-height: unset; flex-direction: column; text-align: center; }
@@ -426,70 +504,94 @@
     .hero-title-sub { display: block; margin-left: 0; margin-top: 2px; font-size: 13px; }
     .hero-tags { justify-content: center; }
     .section { padding: 14px 14px; }
+    .info-grid { grid-template-columns: 1fr; }
     .define-wrap { grid-template-columns: 1fr; }
     .define-img { max-width: 200px; margin: 0 auto; }
     .video-illustrate { grid-template-columns: 1fr; }
     .video-illustrate .vi-img { max-width: 200px; margin: 0 auto; }
     .outfit-illustrate { grid-template-columns: 1fr; }
     .outfit-illustrate .oi-imgs { max-width: 240px; margin: 0 auto; }
-    .cta-back { flex-direction: column; text-align: center; }
   }
 
-  /* 打印/PDF —— 优化紧凑度 */
+  /* ============ 打印/PDF ============ */
   @page { size: A4; margin: 8mm; }
   @media print {
     body { background: #fff !important; }
     body::before { display: none !important; }
-    .section, .top-hero, .cta-back { box-shadow: none !important; }
+    .section, .top-hero, .invite-block, .fancore-def { box-shadow: none !important; }
 
-    /* 前半段压紧 */
-    .top-hero { padding: 14px 18px; gap: 14px; min-height: 0; margin-bottom: 6px; }
+    /* hero 略压 */
+    .top-hero { padding: 16px 20px; gap: 16px; min-height: 0; margin-bottom: 6px; }
     .hero-cover { width: 110px; border-width: 3px; }
     .hero-title { font-size: 24px; margin-bottom: 4px; }
     .hero-title-sub { font-size: 13px; }
     .hero-eyebrow { padding: 3px 10px; font-size: 11px; margin-bottom: 6px; }
-    .hero-tag-label { margin-top: 8px; margin-bottom: 4px; }
+    .hero-brand { font-size: 12px; margin: 2px 0 8px; }
+    .hero-tag-label { margin-top: 6px; margin-bottom: 4px; }
     .hero-tags .htag { padding: 5px 12px; font-size: 13px; }
 
-    .intro-quote { padding: 10px 16px; margin-bottom: 6px; font-size: 12.5px; line-height: 1.6; }
-    .intro-quote p { margin: 2px 0; }
+    .invite-block { padding: 12px 16px; margin-bottom: 6px; }
+    .invite-block .invite-title { margin-bottom: 8px; padding: 3px 10px; font-size: 11px; }
+    .invite-block p { font-size: 12.5px; line-height: 1.7; margin: 4px 0; }
 
-    .section { margin-top: 6px; padding: 12px 16px; break-inside: auto; page-break-inside: auto; }
-    .section-head { margin-bottom: 8px; }
+    .section { margin-top: 6px; padding: 14px 18px; break-inside: auto; page-break-inside: auto; orphans: 3; widows: 3; }
+    .section-head { margin-bottom: 10px; break-after: avoid; page-break-after: avoid; break-inside: avoid; page-break-inside: avoid; }
     .section-num { width: 22px; height: 22px; font-size: 11px; }
     .section-title { font-size: 15px; }
 
-    .rules-list li { padding: 7px 12px; margin-bottom: 4px; font-size: 12.5px; line-height: 1.55; }
-    .rules-list { break-inside: avoid; page-break-inside: avoid; }
+    /* subhead 后面不断，避免小标题成孤儿 */
+    .subhead, .bg-title { break-after: avoid; page-break-after: avoid; break-inside: avoid; page-break-inside: avoid; }
 
-    /* section 02 定义模块，图小一点 */
-    .define-wrap {
-      display: flex !important;
-      gap: 14px; align-items: flex-start;
-      break-inside: avoid; page-break-inside: avoid;
+    /* section 02 单独一页开始，避免"section-head 孤儿"问题 */
+    .section:has(> .section-head .section-num:not(:empty)):nth-of-type(2) {
+      /* 无效选择器占位，Chrome 支持 :has 但保守起见走 id */
     }
-    .define-img { width: 130px; flex-shrink: 0; break-inside: avoid; page-break-inside: avoid; }
-    .define-body { flex: 1; }
-    .define-body h3 { font-size: 13.5px; margin: 4px 0 5px; }
-    .define-body p, .define-body ul li { font-size: 12.5px; line-height: 1.6; padding: 3px 0; margin: 4px 0; }
-    .define-body .lead { font-size: 13px; margin-bottom: 8px; }
-    h3.subhead { font-size: 13px; margin: 10px 0 6px; padding-left: 8px; }
-    .tip-callout { padding: 8px 12px; font-size: 12px; margin-top: 8px; line-height: 1.55; break-inside: avoid; page-break-inside: avoid; }
+    #sec-perk { break-before: page; page-break-before: always; }
 
-    /* 视频内容单独一页起 */
-    #sec-video { break-before: page; page-break-before: always; break-inside: avoid; page-break-inside: avoid; }
+    .info-grid { gap: 6px; margin-bottom: 10px; }
+    .info-item { padding: 7px 12px; font-size: 12px; }
+    .info-item .lab { font-size: 10px; margin-bottom: 2px; }
 
-    .video-illustrate, .outfit-illustrate { padding: 10px 12px; gap: 12px; margin-bottom: 6px; }
-    .video-illustrate .vi-copy p, .outfit-illustrate .oi-copy p { font-size: 12.5px; margin: 4px 0; }
-    .video-illustrate .vi-copy .lines { padding: 8px 12px; }
-    .video-illustrate .vi-copy .lines .line { font-size: 12.5px; padding: 2px 0; }
+    .bg-title { font-size: 13px; margin: 8px 0 6px; }
+    .bg-body { padding: 10px 14px; font-size: 12.5px; line-height: 1.75; }
+    .bg-body .quote { padding: 6px 12px; font-size: 12.5px; }
+
+    .perk-group { padding: 10px 14px; margin-bottom: 8px; break-inside: avoid; page-break-inside: avoid; }
+    .perk-group .pg-head { margin-bottom: 6px; }
+    .perk-group .pg-icon { width: 22px; height: 22px; font-size: 12px; }
+    .perk-group .pg-title { font-size: 13px; }
+    .perk-list li { padding: 6px 12px; margin-bottom: 4px; font-size: 12px; line-height: 1.55; }
+
+    .subhead { font-size: 13px; margin: 10px 0 6px; padding-left: 8px; }
+    .req-list li { padding: 7px 12px; margin-bottom: 4px; font-size: 12.5px; line-height: 1.55; }
     .tag-badges .tb { padding: 4px 10px; font-size: 12px; }
 
-    .cta-back { padding: 12px 16px; margin-top: 10px; }
-    .cta-back .cta-text { font-size: 13px; }
-    .footer { padding: 10px 0 4px; font-size: 11px; }
+    /* "三、合作笔记主题" 整章独立开新页 */
+    #sec-note-topic { break-before: page; page-break-before: always; }
+    /* fancore 定义框保护，与示范图不分家 */
+    .fancore-def { padding: 12px 16px; margin: 8px 0 10px; break-inside: avoid; page-break-inside: avoid; break-after: avoid; page-break-after: avoid; }
+    .fancore-def h4 { font-size: 14px; margin-bottom: 6px; }
+    .fancore-def p { font-size: 12.5px; line-height: 1.7; margin: 4px 0; }
+    .fancore-def .fmt { padding: 3px 10px; font-size: 12px; }
+
+    .define-wrap { display: flex !important; gap: 14px; align-items: flex-start; margin: 8px 0; break-inside: avoid; page-break-inside: avoid; }
+    .define-img { width: 130px; flex-shrink: 0; }
+    .define-body { flex: 1; }
+    .define-body h4 { font-size: 13.5px; margin-bottom: 4px; }
+    .define-body p, .define-body ul li { font-size: 12.5px; line-height: 1.6; padding: 3px 0; margin: 4px 0; }
+    .define-body .lead { font-size: 13px; margin-bottom: 6px; }
+
+    .video-illustrate, .outfit-illustrate { padding: 6px 10px; gap: 10px; margin-bottom: 4px; break-inside: avoid; page-break-inside: avoid; }
+    .video-illustrate { grid-template-columns: 120px 1fr; }
+    .outfit-illustrate { grid-template-columns: 150px 1fr; }
+    .video-illustrate .vi-copy p, .outfit-illustrate .oi-copy p { font-size: 11.5px; margin: 3px 0; line-height: 1.55; }
+    .video-illustrate .vi-copy .lines { padding: 6px 10px; margin-top: 4px; }
+    .video-illustrate .vi-copy .lines .line { font-size: 11.5px; padding: 1px 0; }
+    .subhead { font-size: 12.5px; margin: 8px 0 5px; }
+
+    .footer { padding: 4px 0 2px; font-size: 10px; margin-top: 2px; break-before: avoid; page-break-before: avoid; }
   }
-  </style>
+</style>
 </head>
 <body>
 <div class="page">
@@ -500,8 +602,9 @@
       <img src="assets/nana_style.jpg" alt="奈奈core穿搭示意"/>
     </div>
     <div class="hero-copy">
-      <span class="hero-eyebrow">🎀 二次元圈层 · 选题详解</span>
+      <span class="hero-eyebrow">🎀 二次元圈层 · Fancore 代言邀约</span>
       <h1 class="hero-title">Fancore 穿搭<span class="hero-title-sub">（以奈奈core为例）</span></h1>
+      <div class="hero-brand">小红书时尚｜穿搭暗号对一下 · 用一件衣服认出自己人</div>
       <div class="hero-tag-label">✎ 必带 tag</div>
       <div class="hero-tags">
         <span class="htag">#穿搭暗号对一下</span>
@@ -510,67 +613,105 @@
     </div>
   </div>
 
-  <!-- 引子 -->
-  <div class="intro-quote">
-    <p>从喜欢的「动漫/漫画角色」中萌生穿搭灵感</p>
-    <p>让爱好驱动穿搭，让每一套造型都兼具趣味与时尚表达</p>
-    <p class="qhi">来和同好 #穿搭暗号对一下</p>
-    <p class="qhi">期待与你打造下一个爆款</p>
+  <!-- 合作邀请 -->
+  <div class="invite-block">
+    <div class="invite-title">💌 一句话合作说明</div>
+    <p>小红书时尚即将推出 <b class="em">S 级活动「穿搭暗号对一下」</b>，核心主张是<b class="em">"用一件衣服认出自己人"</b>。</p>
+    <p>我们衍生出了几大圈层「爱好表达向的穿搭风格」➡️ <span class="htag-inline">#自搭出街（二次元）</span> <span class="htag-inline">#我担同款（追星）</span>等等。</p>
+    <p>我们希望邀请你成为 <b class="em">二次元圈层穿搭的代言人</b>，授权代言肖像，发布一条「fancore 主题」视频笔记，分享二次元穿搭，以及如何以穿搭看出爱好。</p>
   </div>
 
-  <!-- 一、投稿激励 -->
-  <div class="section" id="sec-incentive">
+  <!-- 一、项目介绍 -->
+  <div class="section">
     <div class="section-head">
       <div class="section-num">01</div>
-      <h2 class="section-title">一、投稿激励</h2>
+      <h2 class="section-title">一、项目介绍</h2>
     </div>
-    <ul class="rules-list">
-      <li><span class="k">单条笔记推流：</span>内容将获单条曝光 30-50w 的专项推流</li>
-      <li><span class="k">热点提报：</span>有机会获得机会登上「小红书热点」</li>
-      <li><span class="k">话题置顶：</span>pick 优质稿件做 #穿搭暗号对一下 话题下位置顶干预</li>
-      <li><span class="k">活动页面展示：</span>活动 50w+UV 曝光笔记展示</li>
-    </ul>
+
+    <div class="info-grid">
+      <div class="info-item">
+        <span class="lab">活动名称</span>
+        <span class="val">小红书时尚「穿搭暗号对一下」</span>
+      </div>
+      <div class="info-item">
+        <span class="lab">活动周期</span>
+        <span class="val">7.15 - 9.15（7 月为重点传播期）</span>
+      </div>
+      <div class="info-item" style="grid-column: 1 / -1;">
+        <span class="lab">核心主张</span>
+        <span class="val">用一件衣服认出自己人</span>
+      </div>
+      <div class="info-item" style="grid-column: 1 / -1;">
+        <span class="lab">话题</span>
+        <span class="val"><span class="htag-inline">#穿搭暗号对一下</span> <span class="htag-inline">#自搭出街</span></span>
+      </div>
+    </div>
+
+    <div class="bg-title">活动背景</div>
+    <div class="bg-body">
+      <p>小红书时尚频道即将推出重点活动「穿搭暗号对一下」。</p>
+      <p>近两年，小红书上的时尚内容正在从"学会怎么穿"转向"穿出我是谁"。用户不再只关注某个单品是否流行、某套 Look 是否显瘦，而是越来越在意：</p>
+      <div class="quote">这套穿搭是否代表我？是否能代表我的爱好，替我向同好发出信号？</div>
+      <p>我们相信，爱好会渗透进穿搭中，官方 pick 了 <b>二次元、追星、亚文化、vintage、国风</b> 几大圈层，作为穿搭 × 爱好的示范。</p>
+      <p><b>#自搭出街（二次元圈层）</b>，主推的方向为 <b>fancore</b>——从喜欢的「动漫/漫画角色」中萌生穿搭灵感，让爱好驱动穿搭，让每一套造型都兼具趣味与时尚表达。</p>
+      <p>来和同好 <b>#穿搭暗号对一下</b>，期待与你打造下一个爆款。</p>
+    </div>
   </div>
 
-  <!-- 二、穿搭内容画面 -->
-  <div class="section" id="sec-define">
+  <!-- 二、合作激励 -->
+  <div class="section" id="sec-perk">
     <div class="section-head">
       <div class="section-num">02</div>
-      <h2 class="section-title">二、穿搭内容画面</h2>
+      <h2 class="section-title">二、合作激励</h2>
     </div>
 
-    <h3 class="subhead">什么是「奈奈core」穿搭？</h3>
-    <div class="define-wrap">
-      <div class="define-img">
-        <img src="assets/nana_style.jpg" alt="奈奈core穿搭"/>
-      </div>
-      <div class="define-body">
-        <p class="lead">「奈奈core」<b>源自经典少女漫画《NANA》中主角的穿搭美学</b>。</p>
+    <p style="font-size:13px;color:var(--grey-deep);margin:0 0 12px;">小红书可为本次合作提供：</p>
 
-        <h3>小松奈奈风（甜美古早少女感）</h3>
-        <ul>
-          <li><b>核心单品：</b>蕾丝上衣、蓬蓬短裙、蛋糕裙、堆堆袜、厚底鞋、珍珠项链、蝴蝶结发饰</li>
-          <li><b>搭配精髓：</b>强调层层叠穿的丰富感（比如背心叠穿蕾丝衫），色彩多为粉白、米杏等低饱和温柔色系，整体呈现出一种"被世界拥抱"的软萌、纯欲和复古洋娃娃气质</li>
-        </ul>
+    <div class="perk-group">
+      <div class="pg-head">
+        <span class="pg-icon">👑</span>
+        <h3 class="pg-title">官方特邀 title：【圈层 XXcore 代言人】</h3>
       </div>
+      <ul class="perk-list">
+        <li><span class="em">单人开屏 × 1 天</span></li>
+        <li><span class="em">首页推荐 wowcard 资源位推荐 × 1 天</span></li>
+      </ul>
     </div>
 
-    <div class="tip-callout">
-      <span class="tip-icon">💡</span>
-      <div>
-        <b style="color:var(--ani-ink)">不限角色</b>——只要你认为能"搭出效果"，任何动漫角色都可以成为你的穿搭灵感缪斯，创作属于你的「XXcore」风格。
+    <div class="perk-group">
+      <div class="pg-head">
+        <span class="pg-icon">📈</span>
+        <h3 class="pg-title">笔记流量</h3>
       </div>
+      <ul class="perk-list">
+        <li>活动期间带话题 #穿搭暗号对一下 #自搭出街，发布「fancore」穿搭相关非商单笔记活动笔记，均可获 <span class="em">30–50w 社区流量扶持（视频笔记带口播可获 50w 社区流量扶持）</span></li>
+      </ul>
+    </div>
+
+    <div class="perk-group">
+      <div class="pg-head">
+        <span class="pg-icon">📣</span>
+        <h3 class="pg-title">笔记宣推</h3>
+      </div>
+      <ul class="perk-list">
+        <li>在 <span class="em">官方活动页（曝光 5e+）</span> 宣推，页面内点击可跳转至创作者笔记 / 个人主页</li>
+        <li><b style="color:var(--ani-ink)">热点提报：</b>有机会登上「小红书热点」</li>
+        <li><b style="color:var(--ani-ink)">话题置顶：</b>pick 优质稿件做 #穿搭暗号对一下 话题下位置顶干预</li>
+        <li>资源位跳转活动主页面：<span class="em">站内信息活动通知</span> 等</li>
+        <li>时尚薯（424w 粉丝）<span class="em">官方账号笔记宣推</span></li>
+      </ul>
     </div>
   </div>
-  <!-- 三、视频内容 -->
-  <div class="section" id="sec-video">
+
+  <!-- 三、合作笔记主题 -->
+  <div class="section" id="sec-note-topic">
     <div class="section-head">
       <div class="section-num">03</div>
-      <h2 class="section-title">三、视频内容</h2>
+      <h2 class="section-title">三、合作笔记主题</h2>
     </div>
 
-    <h3 class="subhead">发布要求</h3>
-    <ul class="rules-list">
+    <h3 class="subhead">1、笔记要求</h3>
+    <ul class="req-list">
       <li><span class="k">标题需带有：</span>「XXcore」字样，以便更直观地体现本次创作主题</li>
       <li><span class="k">必带 tag：</span></li>
     </ul>
@@ -579,7 +720,35 @@
       <span class="tb">#自搭出街</span>
     </div>
 
-    <h3 class="subhead">内容画面 · 开头三秒内展示动漫人物</h3>
+    <h3 class="subhead" id="subhead-content">2、内容阐述</h3>
+
+    <div class="fancore-def">
+      <h4>什么是「fancore」穿搭？</h4>
+      <p>fan 的位置引申替换为动漫人物 or 漫画人物名，例：</p>
+      <div>
+        <span class="fmt">奈奈core</span>
+        <span class="fmt">JOJOcore</span>
+        <span class="fmt">……</span>
+      </div>
+      <p style="margin-top:10px;"><b>不限角色</b>——只要你认为能"搭出效果"，任何动漫角色都可以成为你的穿搭灵感缪斯，创作属于你的「XXcore」风格。</p>
+    </div>
+
+    <h3 class="subhead">📖 示范：奈奈core 穿搭</h3>
+    <div class="define-wrap">
+      <div class="define-img">
+        <img src="assets/nana_style.jpg" alt="奈奈core穿搭"/>
+      </div>
+      <div class="define-body">
+        <p class="lead">「奈奈core」<b>源自经典少女漫画《NANA》中主角的穿搭美学</b>。</p>
+        <h4>小松奈奈风（甜美古早少女感）</h4>
+        <ul>
+          <li><b>核心单品：</b>蕾丝上衣、蓬蓬短裙、蛋糕裙、堆堆袜、厚底鞋、珍珠项链、蝴蝶结发饰</li>
+          <li><b>搭配精髓：</b>强调层层叠穿的丰富感（比如背心叠穿蕾丝衫），色彩多为粉白、米杏等低饱和温柔色系，整体呈现出一种"被世界拥抱"的软萌、纯欲和复古洋娃娃气质</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="subhead">🎬 视频内容画面 · 开头三秒展示动漫人物</h3>
     <div class="video-illustrate">
       <div class="vi-img">
         <img src="assets/video_hook.jpg" alt="视频开头示意"/>
@@ -588,14 +757,14 @@
         <p>在视频开头 <b>3 秒内展示所选择的动漫角色</b>，帮助观众快速建立角色与穿搭的关联。</p>
         <p>视频中可用文本提示，增强代入感和点击吸引力：</p>
         <div class="lines">
-          <div class="line">当我第一次尝试 XXXcore 穿搭</div>
+          <div class="line">当我第一次尝试 XXcore 穿搭</div>
           <div class="line">当我把 XX 穿进现实</div>
           <div class="line">第一次挑战 XXcore</div>
         </div>
       </div>
     </div>
 
-    <h3 class="subhead">内容画面 · 穿搭展示</h3>
+    <h3 class="subhead">👗 视频内容画面 · 穿搭展示</h3>
     <div class="outfit-illustrate">
       <div class="oi-imgs">
         <div class="oi-img"><img src="assets/outfit_1.jpg" alt="逐件上身示意1"/></div>
@@ -608,17 +777,8 @@
     </div>
   </div>
 
-  <!-- CTA -->
-  <div class="cta-back">
-    <div class="cta-text">
-      ✨ 准备好了？加入 #穿搭暗号对一下
-      <small>用你的穿搭，和同好对上暗号</small>
-    </div>
-    <a href="https://www.xiaohongshu.com/search_result?keyword=%23%E7%A9%BF%E6%90%AD%E6%9A%97%E5%8F%B7%E5%AF%B9%E4%B8%80%E4%B8%8B" target="_blank">前往投稿 →</a>
-  </div>
-
   <div class="footer">
-    Made with <span class="heart">♥</span> · 穿搭暗号对一下｜Fancore 穿搭 · 以奈奈core为例
+    Made with <span class="heart">♥</span> · 穿搭暗号对一下｜Fancore 穿搭 · 以奈奈core 为例
   </div>
 
 </div>
